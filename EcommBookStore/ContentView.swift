@@ -2,20 +2,15 @@
 //  ContentView.swift
 //  EcommBookStore
 //
-//  Created by Kumari Ritu Pal on 08/10/26.
-//
 
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var cartManager = CartManager()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        HomeView()
+            .environmentObject(cartManager)
     }
 }
 
