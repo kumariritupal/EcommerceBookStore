@@ -37,20 +37,23 @@ struct HomeView: View {
                             .foregroundColor(.primary)
                         Spacer()
                         // Cart icon with badge
-                        ZStack(alignment: .topTrailing) {
-                            Image(systemName: "cart.fill")
-                                .font(.title2)
-                                .foregroundColor(.primary)
-                            if cartManager.itemCount > 0 {
-                                Text("\(cartManager.itemCount)")
-                                    .font(.system(size: 10, weight: .bold))
-                                    .foregroundColor(.white)
-                                    .frame(width: 16, height: 16)
-                                    .background(accentColor)
-                                    .clipShape(Circle())
-                                    .offset(x: 6, y: -6)
+                        NavigationLink(destination: CartView()) {
+                            ZStack(alignment: .topTrailing) {
+                                Image(systemName: "cart.fill")
+                                    .font(.title2)
+                                    .foregroundColor(.primary)
+                                if cartManager.itemCount > 0 {
+                                    Text("\(cartManager.itemCount)")
+                                        .font(.system(size: 10, weight: .bold))
+                                        .foregroundColor(.white)
+                                        .frame(width: 16, height: 16)
+                                        .background(accentColor)
+                                        .clipShape(Circle())
+                                        .offset(x: 6, y: -6)
+                                }
                             }
                         }
+                        .buttonStyle(.plain)
                     }
                     .padding(.horizontal, 20)
                     .padding(.top, 16)

@@ -11,6 +11,7 @@ struct BookCoverView: View {
     let book: Book
     let width: CGFloat
     let height: CGFloat
+    var imageSize: Book.CoverSize = .medium
 
     private var coverBackground: Color {
         switch book.coverColor {
@@ -25,7 +26,7 @@ struct BookCoverView: View {
     }
 
     var body: some View {
-        if let url = book.coverURL {
+        if let url = book.coverURL(size: imageSize) {
             AsyncImage(url: url) { phase in
                 switch phase {
                 case .success(let image):

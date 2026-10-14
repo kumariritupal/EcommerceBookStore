@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import Combine
 // MARK: - OpenLibrary API Response Models
 
 private struct OLSearchResponse: Decodable {

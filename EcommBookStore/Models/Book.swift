@@ -19,10 +19,14 @@ struct Book: Identifiable, Hashable {
     let description: String
     var coverImageId: Int? = nil  // OpenLibrary `cover_i`; nil → show placeholder cover
 
-    /// https://covers.openlibrary.org/b/id/<cover_i>-M.jpg
-    var coverURL: URL? {
+    enum CoverSize: String {
+        case small = "S", medium = "M", large = "L"
+    }
+
+    /// https://covers.openlibrary.org/b/id/<cover_i>-<S|M|L>.jpg
+    func coverURL(size: CoverSize = .medium) -> URL? {
         guard let coverImageId else { return nil }
-        return URL(string: "https://covers.openlibrary.org/b/id/\(coverImageId)-M.jpg")
+        return URL(string: "https://covers.openlibrary.org/b/id/\(coverImageId)-\(size.rawValue).jpg")
     }
 }
 

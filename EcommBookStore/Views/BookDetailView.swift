@@ -26,7 +26,7 @@ struct BookDetailView: View {
                         .frame(maxWidth: .infinity)
                         .frame(height: 360)
 
-                    BookCoverView(book: book, width: 200, height: 300)
+                    BookCoverView(book: book, width: 200, height: 300, imageSize: .large)
                         .shadow(color: Color.black.opacity(0.25), radius: 16, x: 0, y: 8)
                         .frame(maxWidth: .infinity)
                         .padding(.top, 30)
